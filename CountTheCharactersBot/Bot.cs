@@ -46,18 +46,6 @@ namespace CountTheCharactersBot
 
         async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            /*if (update.Type == UpdateType.Message)
-                switch (update.Message.Type)
-                {
-                    case MessageType.Text:
-                        await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, $"Длина сообщения: {update.Message.Text.Length} знаков", cancellationToken: cancellationToken);
-                        break;
-                    default:
-                        await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, $"Нужно отправить текст, а вы отправили {update.Message.Type}", cancellationToken: cancellationToken);
-                        break;
-                }            
-            else
-                await _telegramClient.SendTextMessageAsync(update.Message.Chat.Id, $"Нужно отправить текст, а вы отправили {update.Message.Type}", cancellationToken: cancellationToken);*/
             if (update.Type == UpdateType.CallbackQuery)
             {
                 await _inlineKeyboardController.Handle(update.CallbackQuery, cancellationToken);
